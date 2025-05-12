@@ -1,0 +1,30 @@
+services:
+  openapi-generator-cli:
+    image: openapitools/openapi-generator-cli:v7.13.0
+    command:
+      - "generate"
+      - "-i"
+      - "https://api.pdok.nl/bzk/locatieserver/search/v3_1/openapi.json"
+      - "-g"
+      - "python"
+      - "-o"
+      - "/local"
+      - "--package-name"
+      - "pdok_api_client"
+      - "--git-host"
+      - "github.com"
+      - "--git-user-id"
+      - "Amsterdam"
+      - "--git-repo-id"
+      - "pdok-api-client"
+      - "--library"
+      - "asyncio"
+    volumes:
+      - ".:/local"
+
+  pdok-api-client:
+    image: amsterdam/pdok-api-client
+    build:
+      context: .
+    volumes:
+      - ".:/opt/pdok-api-client"
