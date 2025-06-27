@@ -19,6 +19,8 @@ services:
       - "pdok-api-client"
       - "--library"
       - "asyncio"
+      - "-t"
+      - "/local/python"
     volumes:
       - ".:/local"
 
