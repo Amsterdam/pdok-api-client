@@ -13,7 +13,27 @@
 """  # noqa: E501
 
 
-# import models into model package
+if __import__("typing").TYPE_CHECKING:
+    # import models into model package
+    from pdok_api_client.models.error import Error
+    from pdok_api_client.models.free200_response import Free200Response
+    from pdok_api_client.models.free400_response import Free400Response
+    from pdok_api_client.models.highlighting_value import HighlightingValue
+    from pdok_api_client.models.response import Response
+    from pdok_api_client.models.spellcheck import Spellcheck
+    from pdok_api_client.models.spellcheck_collations_inner import SpellcheckCollationsInner
+    from pdok_api_client.models.spellcheck_collations_inner_one_of import SpellcheckCollationsInnerOneOf
+    from pdok_api_client.models.spellcheck_suggestions_inner import SpellcheckSuggestionsInner
+    from pdok_api_client.models.spellcheck_suggestions_inner_one_of import SpellcheckSuggestionsInnerOneOf
+    from pdok_api_client.models.suggest200_response import Suggest200Response
+    
+else:
+    from lazy_imports import LazyModule, as_package, load
+
+    load(
+        LazyModule(
+            *as_package(__file__),
+            """# import models into model package
 from pdok_api_client.models.error import Error
 from pdok_api_client.models.free200_response import Free200Response
 from pdok_api_client.models.free400_response import Free400Response
@@ -25,3 +45,9 @@ from pdok_api_client.models.spellcheck_collations_inner_one_of import Spellcheck
 from pdok_api_client.models.spellcheck_suggestions_inner import SpellcheckSuggestionsInner
 from pdok_api_client.models.spellcheck_suggestions_inner_one_of import SpellcheckSuggestionsInnerOneOf
 from pdok_api_client.models.suggest200_response import Suggest200Response
+
+""",
+            name=__name__,
+            doc=__doc__,
+        )
+    )

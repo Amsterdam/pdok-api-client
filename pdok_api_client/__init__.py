@@ -41,7 +41,43 @@ __all__ = [
     "Suggest200Response",
 ]
 
-# import apis into sdk package
+if __import__("typing").TYPE_CHECKING:
+    # import apis into sdk package
+    from pdok_api_client.api.locatieserver_api import LocatieserverApi as LocatieserverApi
+    
+    # import ApiClient
+    from pdok_api_client.api_response import ApiResponse as ApiResponse
+    from pdok_api_client.api_client import ApiClient as ApiClient
+    from pdok_api_client.configuration import Configuration as Configuration
+    from pdok_api_client.exceptions import OpenApiException as OpenApiException
+    from pdok_api_client.exceptions import ApiTypeError as ApiTypeError
+    from pdok_api_client.exceptions import ApiValueError as ApiValueError
+    from pdok_api_client.exceptions import ApiKeyError as ApiKeyError
+    from pdok_api_client.exceptions import ApiAttributeError as ApiAttributeError
+    from pdok_api_client.exceptions import ApiException as ApiException
+    
+    # import models into sdk package
+    from pdok_api_client.models.error import Error as Error
+    from pdok_api_client.models.free200_response import Free200Response as Free200Response
+    from pdok_api_client.models.free400_response import Free400Response as Free400Response
+    from pdok_api_client.models.highlighting_value import HighlightingValue as HighlightingValue
+    from pdok_api_client.models.response import Response as Response
+    from pdok_api_client.models.spellcheck import Spellcheck as Spellcheck
+    from pdok_api_client.models.spellcheck_collations_inner import SpellcheckCollationsInner as SpellcheckCollationsInner
+    from pdok_api_client.models.spellcheck_collations_inner_one_of import SpellcheckCollationsInnerOneOf as SpellcheckCollationsInnerOneOf
+    from pdok_api_client.models.spellcheck_suggestions_inner import SpellcheckSuggestionsInner as SpellcheckSuggestionsInner
+    from pdok_api_client.models.spellcheck_suggestions_inner_one_of import SpellcheckSuggestionsInnerOneOf as SpellcheckSuggestionsInnerOneOf
+    from pdok_api_client.models.suggest200_response import Suggest200Response as Suggest200Response
+    
+else:
+    from lazy_imports import LazyModule, as_package, load
+
+    load(
+        LazyModule(
+            *as_package(__file__),
+            ("__version__", __version__),
+            ("__all__", __all__),
+            """# import apis into sdk package
 from pdok_api_client.api.locatieserver_api import LocatieserverApi as LocatieserverApi
 
 # import ApiClient
@@ -67,3 +103,9 @@ from pdok_api_client.models.spellcheck_collations_inner_one_of import Spellcheck
 from pdok_api_client.models.spellcheck_suggestions_inner import SpellcheckSuggestionsInner as SpellcheckSuggestionsInner
 from pdok_api_client.models.spellcheck_suggestions_inner_one_of import SpellcheckSuggestionsInnerOneOf as SpellcheckSuggestionsInnerOneOf
 from pdok_api_client.models.suggest200_response import Suggest200Response as Suggest200Response
+
+""",
+            name=__name__,
+            doc=__doc__,
+        )
+    )
