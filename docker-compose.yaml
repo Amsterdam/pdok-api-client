@@ -1,6 +1,6 @@
 services:
   openapi-generator-cli:
-    image: openapitools/openapi-generator-cli:v7.22.0
+    image: openapitools/openapi-generator-cli:v7.25.0
     command:
       - "generate"
       - "-i"

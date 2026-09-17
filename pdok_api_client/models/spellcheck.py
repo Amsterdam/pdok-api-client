@@ -76,15 +76,13 @@ class Spellcheck(BaseModel):
         _items = []
         if self.collations:
             for _item_collations in self.collations:
-                if _item_collations:
-                    _items.append(_item_collations.to_dict())
+                _items.append(_item_collations.to_dict() if _item_collations is not None else None)
             _dict['collations'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in suggestions (list)
         _items = []
         if self.suggestions:
             for _item_suggestions in self.suggestions:
-                if _item_suggestions:
-                    _items.append(_item_suggestions.to_dict())
+                _items.append(_item_suggestions.to_dict() if _item_suggestions is not None else None)
             _dict['suggestions'] = _items
         return _dict
 
