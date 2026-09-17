@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,9 +27,9 @@ class Error(BaseModel):
     """
     Error
     """ # noqa: E501
-    code: Optional[StrictInt] = None
+    code: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [400]})
     metadata: Optional[List[StrictStr]] = None
-    msg: Optional[StrictStr] = None
+    msg: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["undefined field"]})
     __properties: ClassVar[List[str]] = ["code", "metadata", "msg"]
 
     model_config = ConfigDict(

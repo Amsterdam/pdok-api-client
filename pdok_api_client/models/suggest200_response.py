@@ -78,8 +78,7 @@ class Suggest200Response(BaseModel):
         _field_dict = {}
         if self.highlighting:
             for _key_highlighting in self.highlighting:
-                if self.highlighting[_key_highlighting]:
-                    _field_dict[_key_highlighting] = self.highlighting[_key_highlighting].to_dict()
+                _field_dict[_key_highlighting] = self.highlighting[_key_highlighting].to_dict() if self.highlighting[_key_highlighting] is not None else None
             _dict['highlighting'] = _field_dict
         # override the default output from pydantic by calling `to_dict()` of response
         if self.response:

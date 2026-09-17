@@ -46,7 +46,7 @@ async with pdok_api_client.ApiClient(configuration) as api_client:
     start = 0 # int | Hiermee wordt opgegeven wat de index is van het eerste resultaat dat teruggegeven wordt. Dit is zero-based. In combinatie met de rows-parameter kunnen deze services gepagineerd worden bevraagd. Het maximum is \"10.000\".  (optional) (default to 0)
     rows = 10 # int | Hiermee wordt opgegeven wat het maximale aantal rijen (ofwel resultaten) is dat teruggegeven moet worden op deze bevraging. Het maximum is \"100\".  (optional) (default to 10)
     sort = 'score desc,sortering asc,weergavenaam asc' # str | Hiermee kan worden opgegeven hoe de sortering plaatsvindt. (optional) (default to 'score desc,sortering asc,weergavenaam asc')
-    wt = json # str | Hiermee wordt opgegeven wat het outputformaat is van de bevraging. (optional) (default to json)
+    wt = 'json' # str | Hiermee wordt opgegeven wat het outputformaat is van de bevraging. (optional) (default to 'json')
 
     try:
         # De Free API biedt de mogelijkheid om vrij te zoeken (klassiek geocoderen), waar zonder tussenkomst van suggesties de API direct resultaten teruggeeft op basis van de zoekopdracht. 
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
  **start** | **int**| Hiermee wordt opgegeven wat de index is van het eerste resultaat dat teruggegeven wordt. Dit is zero-based. In combinatie met de rows-parameter kunnen deze services gepagineerd worden bevraagd. Het maximum is \&quot;10.000\&quot;.  | [optional] [default to 0]
  **rows** | **int**| Hiermee wordt opgegeven wat het maximale aantal rijen (ofwel resultaten) is dat teruggegeven moet worden op deze bevraging. Het maximum is \&quot;100\&quot;.  | [optional] [default to 10]
  **sort** | **str**| Hiermee kan worden opgegeven hoe de sortering plaatsvindt. | [optional] [default to &#39;score desc,sortering asc,weergavenaam asc&#39;]
- **wt** | **str**| Hiermee wordt opgegeven wat het outputformaat is van de bevraging. | [optional] [default to json]
+ **wt** | **str**| Hiermee wordt opgegeven wat het outputformaat is van de bevraging. | [optional] [default to &#39;json&#39;]
 
 ### Return type
 
@@ -127,7 +127,7 @@ async with pdok_api_client.ApiClient(configuration) as api_client:
     id = 'id_example' # str | Hiermee wordt het object-ID opgegeven.
     fl = 'id identificatie weergavenaam bron type openbareruimte_id nwb_id openbareruimtetype straatnaam straatnaam_verkort adresseerbaarobject_id nummeraanduiding_id huisnummer huisletter huisnummertoevoeging huis_nlt postcode buurtnaam buurtcode wijknaam wijkcode woonplaatscode woonplaatsnaam gemeentecode gemeentenaam provinciecode provincienaam provincieafkorting kadastrale_gemeentecode kadastrale_gemeentenaam kadastrale_sectie perceelnummer kadastrale_grootte gekoppeld_perceel volgnummer gekoppeld_appartement kadastrale_aanduiding wegnummer hectometernummer zijde hectometerletter waterschapsnaam waterschapscode rdf_seealso centroide_ll centroide_rd' # str | Hiermee worden de velden opgegeven die teruggegeven dienen te worden. (optional) (default to 'id identificatie weergavenaam bron type openbareruimte_id nwb_id openbareruimtetype straatnaam straatnaam_verkort adresseerbaarobject_id nummeraanduiding_id huisnummer huisletter huisnummertoevoeging huis_nlt postcode buurtnaam buurtcode wijknaam wijkcode woonplaatscode woonplaatsnaam gemeentecode gemeentenaam provinciecode provincienaam provincieafkorting kadastrale_gemeentecode kadastrale_gemeentenaam kadastrale_sectie perceelnummer kadastrale_grootte gekoppeld_perceel volgnummer gekoppeld_appartement kadastrale_aanduiding wegnummer hectometernummer zijde hectometerletter waterschapsnaam waterschapscode rdf_seealso centroide_ll centroide_rd')
     fq = ['fq_example'] # List[str] | Hiermee kan een filter query worden opgegeven, bijv. `fq=bron:BAG`. (optional)
-    wt = json # str | Hiermee wordt opgegeven wat het outputformaat is van de bevraging. (optional) (default to json)
+    wt = 'json' # str | Hiermee wordt opgegeven wat het outputformaat is van de bevraging. (optional) (default to 'json')
 
     try:
         # Zodra er op basis van suggesties van de Suggest API een keuze is gemaakt, wordt de Lookup API aangeroepen, welke o.a. een (versimpelde) geometrie van de zoekopdracht teruggeeft. 
@@ -148,7 +148,7 @@ Name | Type | Description  | Notes
  **id** | **str**| Hiermee wordt het object-ID opgegeven. | 
  **fl** | **str**| Hiermee worden de velden opgegeven die teruggegeven dienen te worden. | [optional] [default to &#39;id identificatie weergavenaam bron type openbareruimte_id nwb_id openbareruimtetype straatnaam straatnaam_verkort adresseerbaarobject_id nummeraanduiding_id huisnummer huisletter huisnummertoevoeging huis_nlt postcode buurtnaam buurtcode wijknaam wijkcode woonplaatscode woonplaatsnaam gemeentecode gemeentenaam provinciecode provincienaam provincieafkorting kadastrale_gemeentecode kadastrale_gemeentenaam kadastrale_sectie perceelnummer kadastrale_grootte gekoppeld_perceel volgnummer gekoppeld_appartement kadastrale_aanduiding wegnummer hectometernummer zijde hectometerletter waterschapsnaam waterschapscode rdf_seealso centroide_ll centroide_rd&#39;]
  **fq** | [**List[str]**](str.md)| Hiermee kan een filter query worden opgegeven, bijv. &#x60;fq&#x3D;bron:BAG&#x60;. | [optional] 
- **wt** | **str**| Hiermee wordt opgegeven wat het outputformaat is van de bevraging. | [optional] [default to json]
+ **wt** | **str**| Hiermee wordt opgegeven wat het outputformaat is van de bevraging. | [optional] [default to &#39;json&#39;]
 
 ### Return type
 
@@ -207,7 +207,7 @@ async with pdok_api_client.ApiClient(configuration) as api_client:
     fq = '' # str | Hiermee kan een filter query worden opgegeven, bijv. `fq=bron:BAG`. Deze wordt uitgevoerd nadat de dichtsbijzijnde resultaten zijn gevonden, dus resultaten die hier niet aan voldoen worden weggefilterd waardoor je minder resultaten dan het aantal rows kan terugkrijgen.  (optional)
     start = 0 # int | Hiermee wordt opgegeven wat de index is van het eerste resultaat dat teruggegeven wordt. Dit is zero-based. In combinatie met de rows-parameter kunnen deze services gepagineerd worden bevraagd. Het maximum is \"10.000\".  (optional) (default to 0)
     rows = 10 # int | Hiermee wordt opgegeven wat het maximale aantal rijen (ofwel resultaten) is dat teruggegeven moet worden op deze bevraging. Het maximum is \"100\".  (optional) (default to 10)
-    wt = json # str | Hiermee wordt opgegeven wat het outputformaat is van de bevraging. (optional) (default to json)
+    wt = 'json' # str | Hiermee wordt opgegeven wat het outputformaat is van de bevraging. (optional) (default to 'json')
 
     try:
         # De Reverse API biedt de mogelijkheid om een locatie (punt geometrie) op te geven om vervolgens verschillende gegevens in een range rondom deze locatie te ontvangen. 
@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
  **fq** | **str**| Hiermee kan een filter query worden opgegeven, bijv. &#x60;fq&#x3D;bron:BAG&#x60;. Deze wordt uitgevoerd nadat de dichtsbijzijnde resultaten zijn gevonden, dus resultaten die hier niet aan voldoen worden weggefilterd waardoor je minder resultaten dan het aantal rows kan terugkrijgen.  | [optional] 
  **start** | **int**| Hiermee wordt opgegeven wat de index is van het eerste resultaat dat teruggegeven wordt. Dit is zero-based. In combinatie met de rows-parameter kunnen deze services gepagineerd worden bevraagd. Het maximum is \&quot;10.000\&quot;.  | [optional] [default to 0]
  **rows** | **int**| Hiermee wordt opgegeven wat het maximale aantal rijen (ofwel resultaten) is dat teruggegeven moet worden op deze bevraging. Het maximum is \&quot;100\&quot;.  | [optional] [default to 10]
- **wt** | **str**| Hiermee wordt opgegeven wat het outputformaat is van de bevraging. | [optional] [default to json]
+ **wt** | **str**| Hiermee wordt opgegeven wat het outputformaat is van de bevraging. | [optional] [default to &#39;json&#39;]
 
 ### Return type
 
@@ -294,7 +294,7 @@ async with pdok_api_client.ApiClient(configuration) as api_client:
     start = 0 # int | Hiermee wordt opgegeven wat de index is van het eerste resultaat dat teruggegeven wordt. Dit is zero-based. In combinatie met de rows-parameter kunnen deze services gepagineerd worden bevraagd. Hhet maximum is \"10.000\".  (optional) (default to 0)
     rows = 10 # int | Hiermee wordt opgegeven wat het maximale aantal rijen (ofwel resultaten) is dat teruggegeven moet worden op deze bevraging. Het maximum is \"100\".  (optional) (default to 10)
     sort = 'score desc,sortering asc,weergavenaam asc' # str | Hiermee kan worden opgegeven hoe de sortering plaatsvindt. (optional) (default to 'score desc,sortering asc,weergavenaam asc')
-    wt = json # str | Hiermee wordt opgegeven wat het outputformaat is van de bevraging. (optional) (default to json)
+    wt = 'json' # str | Hiermee wordt opgegeven wat het outputformaat is van de bevraging. (optional) (default to 'json')
 
     try:
         # De Suggest API biedt de mogelijkheid om een (gedeelte van een) zoekopdracht op te voeren, waarnaar er suggesties teruggegeven worden. 
@@ -322,7 +322,7 @@ Name | Type | Description  | Notes
  **start** | **int**| Hiermee wordt opgegeven wat de index is van het eerste resultaat dat teruggegeven wordt. Dit is zero-based. In combinatie met de rows-parameter kunnen deze services gepagineerd worden bevraagd. Hhet maximum is \&quot;10.000\&quot;.  | [optional] [default to 0]
  **rows** | **int**| Hiermee wordt opgegeven wat het maximale aantal rijen (ofwel resultaten) is dat teruggegeven moet worden op deze bevraging. Het maximum is \&quot;100\&quot;.  | [optional] [default to 10]
  **sort** | **str**| Hiermee kan worden opgegeven hoe de sortering plaatsvindt. | [optional] [default to &#39;score desc,sortering asc,weergavenaam asc&#39;]
- **wt** | **str**| Hiermee wordt opgegeven wat het outputformaat is van de bevraging. | [optional] [default to json]
+ **wt** | **str**| Hiermee wordt opgegeven wat het outputformaat is van de bevraging. | [optional] [default to &#39;json&#39;]
 
 ### Return type
 
